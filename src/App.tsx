@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Values from 'values.js';
+import { SingleColor } from './components/SingleColor';
 
 function App() {
   const [color, setColor] = useState('');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(new Values('#f15025').all(10));
 
   // const componentToHex = (c: number) => {
   //   const hex = c.toString(16);
@@ -45,13 +46,13 @@ function App() {
 
       <section className='min-h-[87vh] grid grid-cols-testCol grid-rows-testRow'>
         {data.map((c, index) => (
-          <article
+          <SingleColor
             key={index}
-            className={`py-4 px-8 cursor-pointer ${index > 10 && 'text-white'}`}
-            style={{ backgroundColor: `rgb(${c.rgb})` }}>
-            <p className='percent-value'>{c.weight}%</p>
-            <p className='color-value'>#{c.hex}</p>
-          </article>
+            index={index}
+            rgb={c.rgb}
+            hex={c.hex}
+            weight={c.weight}
+          />
         ))}
       </section>
     </main>
