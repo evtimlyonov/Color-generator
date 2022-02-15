@@ -7,15 +7,6 @@ function App() {
   const [data, setData] = useState(new Values('#f15025').all(10));
   const [error, setError] = useState(false);
 
-  // const componentToHex = (c: number) => {
-  //   const hex = c.toString(16);
-  //   return hex.length === 1 ? '0' + hex : hex;
-  // };
-
-  // const rgbToHex = (r: number, g: number, b: number) => {
-  //   return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
-  // };
-
   const submitHandler: React.FormEventHandler = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -30,7 +21,7 @@ function App() {
 
   return (
     <main>
-      <section className='flex items-center h-24 pl-8 text-center'>
+      <section className='flex flex-col items-center justify-around h-24 mb-2 text-center sm:pl-8 sm:justify-start sm:mb-0 sm:flex-row'>
         <h3 className='mr-8 text-3xl font-semibold capitalize'>
           color generator
         </h3>
